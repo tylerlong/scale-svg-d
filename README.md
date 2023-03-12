@@ -17,11 +17,11 @@ M190,30H50c-11,0,-20,9,-20,20v140c0,11,9,20,20,20h140c11,0,20,-9,20,-20V50c0,-11
 ## Usage
 
 ```
-yarn add scale-svg-path
+yarn add scale-svg-d
 ```
 
 ```ts
-import { scale } from 'scale-svg-path';
+import { scale } from 'scale-svg-d';
 
-const newPath = scale(currentPath, 10);
+const newD = scale(d, 10);
 ```

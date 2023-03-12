@@ -1,9 +1,9 @@
 const command = /([mlhvcsqtaz])([^mlhvcsqtaz]*)/gi;
 const number = /-?[0-9]*\.?[0-9]+(?:e[-+]?\d+)?/gi;
 
-export const scale = (path: string, scale: number): string => {
+export const scale = (d: string, scale: number): string => {
   const result: string[] = [];
-  const commands = path.match(command);
+  const commands = d.match(command);
   if (commands) {
     for (const command of commands) {
       console.log(command);

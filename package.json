@@ -1,0 +1,26 @@
+{
+  "license": "MIT",
+  "version": "0.1.0",
+  "name": "scale-svg-path",
+  "scripts": {
+    "lint": "eslint --fix '**/*.{ts,tsx,js,jsx}' && prettier --write .",
+    "test": "ts-node src/test.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.0",
+    "@typescript-eslint/eslint-plugin": "^5.54.1",
+    "@typescript-eslint/parser": "^5.54.1",
+    "eslint": "^8.36.0",
+    "eslint-config-alloy": "^4.9.0",
+    "eslint-config-prettier": "^8.7.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.4",
+    "ts-node": "^10.9.1",
+    "ttpt": "^0.2.2",
+    "typescript": "^4.9.5",
+    "yarn-upgrade-all": "^0.7.2"
+  },
+  "dependencies": {
+    "parse-svg-path": "^0.1.2"
+  }
+}

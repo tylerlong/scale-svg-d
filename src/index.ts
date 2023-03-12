@@ -6,7 +6,6 @@ export const scale = (d: string, scale: number): string => {
   const commands = d.match(command);
   if (commands) {
     for (const command of commands) {
-      console.log(command);
       result.push(command[0]);
       const numbers = command.match(number);
       if (numbers) {

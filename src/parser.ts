@@ -1,27 +1,8 @@
 module.exports = parse;
 
-/**
- * expected argument lengths
- * @type {Object}
- */
-
 let length = { a: 7, c: 6, h: 1, l: 2, m: 2, q: 4, s: 4, t: 2, v: 1, z: 0 };
 
-/**
- * segment pattern
- * @type {RegExp}
- */
-
 let segment = /([astvzqmhlc])([^astvzqmhlc]*)/gi;
-
-/**
- * parse an svg path data string. Generates an Array
- * of commands where each command is an Array of the
- * form `[command, arg1, arg2, ...]`
- *
- * @param {String} path
- * @return {Array}
- */
 
 function parse(path) {
   let data = [];
@@ -30,14 +11,14 @@ function parse(path) {
     args = parseValues(args);
 
     // overloaded moveTo
-    if (type == 'm' && args.length > 2) {
+    if (type === 'm' && args.length > 2) {
       data.push([command].concat(args.splice(0, 2)));
       type = 'l';
-      command = command == 'm' ? 'l' : 'L';
+      command = command === 'm' ? 'l' : 'L';
     }
 
     while (true) {
-      if (args.length == length[type]) {
+      if (args.length === length[type]) {
         args.unshift(command);
         return data.push(args);
       }

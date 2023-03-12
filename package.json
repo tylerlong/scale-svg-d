@@ -2,9 +2,12 @@
   "license": "MIT",
   "version": "0.1.0",
   "name": "scale-svg-path",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "lint": "eslint --fix '**/*.{ts,tsx,js,jsx}' && prettier --write .",
-    "test": "ts-node src/parser.ts"
+    "test": "ts-node src/test.ts",
+    "prepublishOnly": "tsc src/index.ts --declaration --outDir lib"
   },
   "devDependencies": {
     "@types/node": "^18.15.0",

@@ -1,13 +1,29 @@
-import parse from './parser';
+const command = /([mlhvcsqtaz])([^mlhvcsqtaz]*)/gi;
+const number = /-?[0-9]*\.?[0-9]+(?:e[-+]?\d+)?/gi;
 
-export const scale = (path: string, factor: number) => {
-  const parsed: string[][] = parse(path);
-  let newPath = '';
-  for (const items of parsed) {
-    newPath += items[0];
-    for (const item of items.slice(1)) {
-      newPath += ` ${(parseFloat(item) * factor).toFixed(2)}`;
+export const scale = (path: string, scale: number): string => {
+  const result: string[] = [];
+  const commands = path.match(command);
+  if (commands) {
+    for (const command of commands) {
+      console.log(command);
+      result.push(command[0]);
+      const numbers = command.match(number);
+      if (numbers) {
+        result.push(
+          numbers
+            .map((n) => {
+              let numStr = (Number(n) * scale).toFixed(2);
+              if (numStr.indexOf('.') !== -1) {
+                numStr = numStr.replace(/0+$/, '');
+                numStr = numStr.replace(/\.$/, '');
+              }
+              return numStr;
+            })
+            .join(','),
+        );
+      }
     }
   }
-  return newPath;
+  return result.join('');
 };
